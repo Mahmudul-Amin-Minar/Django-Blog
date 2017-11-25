@@ -1,4 +1,5 @@
 from django import template
+from django.contrib.auth.models import User
 from ..models import Post
 
 register = template.Library()
@@ -13,3 +14,9 @@ def total_post():
 def show_latest_posts(count=5):
     latest_posts = Post.published.order_by('-publish')[:count]
     return {'latest_posts': latest_posts}
+
+
+@register.inclusion_tag('register/user_list.html')
+def user_lists():
+    user_lists = User.objects.all()
+    return {'user_lists': user_lists}

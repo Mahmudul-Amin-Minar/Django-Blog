@@ -1,0 +1,5 @@
+<ul>
+    {% for user in user_lists %}
+        <li><a href="{% url 'register:profile' %}">{{ user.username }}</a></li>
+    {% endfor %}
+</ul>
