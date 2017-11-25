@@ -80,12 +80,9 @@ def edit_post(request, id):
     post = Post.objects.get(id=id)
     if request.user == post.author:
         if request.method == 'POST':
-            form = PostCreateForm(request.POST)
-            if form.is_valid():
-                new_post = form.save(commit=False)
-                new_post.author = request.user
-                new_post.save()
-                return redirect('blog:home')
+            form = PostCreateForm(request.POST, instance=post)
+            form.save()
+            return redirect('blog:home')
 
         else:
             form = PostCreateForm(instance=post)
