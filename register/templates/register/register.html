@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <form method="post">
+        <br><br>
+        Username:
+        <br>
+        <input type="text" name="username">
+        <br>
+        <br>
+        Email:
+        <br>
+        <input type="email" name="email">
+        <br>
+        <br>
+        Password:
+        <p>Your password shouldn't be completely numeric. And must be Eight character long.</p>
+        <input type="password" name="password1">
+        <br>
+        <br>
+        Confirm Password:
+        <br>
+        <input type="password" name="password2">
+        <br>
+        <br>
+
+        <button type="submit" >Submit</button>
+
+        {% csrf_token %}
+    </form>
+{% endblock %}

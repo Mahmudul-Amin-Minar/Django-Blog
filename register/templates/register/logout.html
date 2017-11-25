@@ -1,0 +1,6 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <h2>You are logged out</h2>
+    <h3>You can log in here.</h3>
+    <a href="{% url 'register:login' %}">Log In</a>
+{% endblock %}

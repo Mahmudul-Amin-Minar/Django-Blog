@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% if posts %}
+         <ul>
+            <h1>Your total post {{ total }}.</h1>
+            {% for post in posts %}
+                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>You have not posted any Post MothaFucker...</h2>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+    <title>Profile</title>
+{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        Username:
+        <input type="text" name="username" value="{{ request.user }}">
+        <br>
+        <br>
+        First Name
+        <input type="text" name="first_name">
+        <br>
+        <br>
+        Last Name
+        <input type="text" name="last_name">
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+        <br>
+        <br>
+    </form>
+    <p>You can change your password. <a href="{% url 'register:change_password' %}">Click here.</a></p>
+{% endblock %}

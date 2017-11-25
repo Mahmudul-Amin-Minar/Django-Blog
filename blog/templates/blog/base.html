@@ -1,0 +1,25 @@
+{% load staticfiles %}
+{% load blog_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{% block title %}Blog | Home{% endblock %}</title>
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="content">
+        <a href="{% url 'blog:home' %}"><h1>BLOG...!!!</h1></a>
+        {% include 'blog/navbar.html' %}
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>Blog</h2>
+        <p>Total blog post {% total_post %}</p>
+
+        <h2>Latest Posts</h2>
+        {% show_latest_posts %}
+    </div>
+</body>
+</html>

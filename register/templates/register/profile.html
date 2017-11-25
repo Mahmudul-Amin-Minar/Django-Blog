@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block title %}Blog | Profile{% endblock %}
+{% block content %}
+    <h2><b>Name: </b>{{ request.user }}</h2>
+    <h2><b>First Name: </b>{{ request.user.first_name }}</h2>
+    <h2><b>Last Name: </b>{{ request.user.last_name }}</h2>
+    <h2><b>E-mail: </b>{{ request.user.email }}</h2>
+    <br>
+    <br>
+    <a href="{% url 'register:profile_edit' %}" style="font-weight:bold;background: green;color:#fff;padding:10px 20px;font-size:14px;text-transform:uppercase;">Edit</a>
+{% endblock %}
